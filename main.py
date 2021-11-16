@@ -11,16 +11,14 @@ class Game:
 
     def play(self):
         while True:
-            print('What do you want to do?')
-            what_to_do = input().lower()
+            what_to_do = input('What do you want to do?').lower()
             if action_function := self.actions.get(what_to_do):
                 action_function()
             else:
                 print('Invalid action')
 
     def rob(self):
-        print('Who would you like to rob? Elephant, bunny or monkey?')
-        rob_input = input().lower()
+        rob_input = input('Who would you like to rob? Elephant, bunny or monkey?').lower()
         die_rob = randint(1, 100)
         if die_rob <= 25:
             print('You died while robbing the', rob_input)
@@ -65,9 +63,8 @@ class Game:
     def gamble(self):
         gamble_pick = randint(1, 3)
         if gamble_pick == 1:
-            print('Pick a number between 1 and 10')
             number_picker = randint(1, 10)
-            number_pick = int(input())
+            number_pick = int(input('Pick a number between 1 and 10'))
             if number_pick == number_picker:
                 gamble_money = randint(1000, 10000)
                 print('You won', gamble_money, 'money')
