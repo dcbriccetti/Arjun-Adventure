@@ -3,9 +3,6 @@ from time import time
 
 class Game:
     def __init__(self) -> None:
-        self.elephant = randint(100, 1000)
-        self.bunny = randint(300, 9000)
-        self.monkey = randint(700, 10000)
         self.dig_avail_at = time()
         self.monk_eye = 0
         self.dep_with = True
@@ -41,31 +38,31 @@ class Game:
             self.bank = 0
             self.inventory = []
         else:
+            rob_chance = randint(1, 100)
             if rob_input == 'elephant':
-                rob_chance = randint(1, 100)
+                elephant = randint(100, 1000)
                 if rob_chance >= 50:
-                    print('You got', self.elephant, 'moneys')
-                    money = self.elephant + self.money
-                    print('You have', money, 'money')
+                    self.apply_gain(elephant)
                 else:
                     self.police_catch()
                     self.inventory = []
-            if rob_input == 'bunny':
-                rob_chance = randint(1, 100)
+            elif rob_input == 'bunny':
+                bunny = randint(300, 9000)
                 if rob_chance > 25:
-                    print('You got', self.bunny, 'moneys')
-                    self.money += self.bunny
-                    print('You have', self.money, 'money')
+                    self.apply_gain(bunny)
                 else:
                     self.police_catch()
-            if rob_input == 'monkey':
-                rob_chance = randint(1, 100)
+            elif rob_input == 'monkey':
+                monkey = randint(700, 10000)
                 if rob_chance > 25:
-                    print('You got', self.monkey, 'moneys')
-                    self.money += self.monkey
-                    print('You have', self.money, 'money')
+                    self.apply_gain(monkey)
                 else:
                     self.police_catch()
+
+    def apply_gain(self, gain):
+        print('You got', gain, 'moneys')
+        self.money += gain
+        print('You have', self.money, 'money')
 
     def police_catch(self):
         print('The police caught you and you lost all your money!')
