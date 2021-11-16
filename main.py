@@ -1,18 +1,8 @@
 from random import randint
-from time import time
 
 class Game:
     def __init__(self) -> None:
-        self.dig_avail_at = time()
-        self.monk_eye = 0
-        self.dep_with = True
         self.money = 3932333
-        self.jail = False
-        self.bank = 0
-        self.shop_list = ['5,000:Shovel, 10,000:Phone, 20,000:Computer, 100,000:Cheese']
-        self.inventory = []
-        self.knowledge = 0
-        self.job_is_here = 0
         self.actions = {
             'rob': self.rob,
             'gamble': self.gamble,
