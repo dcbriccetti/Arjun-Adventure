@@ -47,7 +47,7 @@ class Game:
                     print('You got', self.elephant, 'moneys')
                     money = self.elephant + self.money
                     print('You have', money, 'money')
-                if robchance <= 50:
+                else:
                     print('The police caught you and you lost all your money!')
                     self.money = 0
                     self.bank = 0
@@ -58,8 +58,8 @@ class Game:
                     print('You got', self.bunny, 'moneys')
                     self.money = self.bunny + self.money
                     print('You have', self.money, 'money')
-                if robchance <= 25:
-                    print('The police caught you and you lost all your self.money!')
+                else:
+                    print('The police caught you and you lost all your money!')
                     self.money = 0
                     self.bank = 0
             if robinput == 'monkey':
@@ -68,8 +68,8 @@ class Game:
                     print('You got', self.monkey, 'moneys')
                     self.money = self.monkey + self.money
                     print('You have', self.money, 'money')
-                if robchance < 25:
-                    print('The police caught you and you lost all your self.money!')
+                else:
+                    print('The police caught you and you lost all your money!')
                     self.money = 0
                     self.bank = 0
 
@@ -89,12 +89,12 @@ class Game:
                 print('You lost', gamblemoney, 'money')
                 self.money = self.money - gamblemoney
                 print('You have', self.money, 'money')
-        if gamblepick == 2:
+        elif gamblepick == 2:
             moneylost = randint(10, 1000)
             print('You lost', moneylost, 'money')
             self.money = self.money - moneylost
             print('You have', self.money, 'money')
-        if gamblepick == 3:
+        elif gamblepick == 3:
             moneywon = randint(10, 10000)
             print('You won', moneywon, 'money')
             self.money = moneywon + self.money
