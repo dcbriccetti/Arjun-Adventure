@@ -48,9 +48,7 @@ class Game:
                     money = self.elephant + self.money
                     print('You have', money, 'money')
                 else:
-                    print('The police caught you and you lost all your money!')
-                    self.money = 0
-                    self.bank = 0
+                    self.police_catch()
                     self.inventory = []
             if robinput == 'bunny':
                 robchance = randint(1, 100)
@@ -59,9 +57,7 @@ class Game:
                     self.money = self.bunny + self.money
                     print('You have', self.money, 'money')
                 else:
-                    print('The police caught you and you lost all your money!')
-                    self.money = 0
-                    self.bank = 0
+                    self.police_catch()
             if robinput == 'monkey':
                 robchance = randint(1, 100)
                 if robchance > 25:
@@ -69,9 +65,12 @@ class Game:
                     self.money = self.monkey + self.money
                     print('You have', self.money, 'money')
                 else:
-                    print('The police caught you and you lost all your money!')
-                    self.money = 0
-                    self.bank = 0
+                    self.police_catch()
+
+    def police_catch(self):
+        print('The police caught you and you lost all your money!')
+        self.money = 0
+        self.bank = 0
 
     def gamble(self):
         gamblepick = randint(1, 3)
