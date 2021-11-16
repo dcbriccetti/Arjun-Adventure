@@ -63,9 +63,7 @@ class Game:
     def gamble(self):
         gamble_pick = randint(1, 3)
         if gamble_pick == 1:
-            number_picker = randint(1, 10)
-            number_pick = int(input('Pick a number between 1 and 10'))
-            if number_pick == number_picker:
+            if int(input('Pick a number between 1 and 10')) == randint(1, 10):
                 gamble_money = randint(1000, 10000)
                 print('You won', gamble_money, 'money')
                 self.money += gamble_money
