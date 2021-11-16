@@ -54,7 +54,7 @@ class Game:
                 robchance = randint(1, 100)
                 if robchance > 25:
                     print('You got', self.bunny, 'moneys')
-                    self.money = self.bunny + self.money
+                    self.money += self.bunny
                     print('You have', self.money, 'money')
                 else:
                     self.police_catch()
@@ -62,7 +62,7 @@ class Game:
                 robchance = randint(1, 100)
                 if robchance > 25:
                     print('You got', self.monkey, 'moneys')
-                    self.money = self.monkey + self.money
+                    self.money += self.monkey
                     print('You have', self.money, 'money')
                 else:
                     self.police_catch()
@@ -81,22 +81,22 @@ class Game:
             if numberpick == numberpicker:
                 gamblemoney = randint(1000, 10000)
                 print('You won', gamblemoney, 'money')
-                self.money = gamblemoney + self.money
+                self.money += gamblemoney
                 print('You have', self.money, 'money')
             else:
                 gamblemoney = randint(1000, 4000)
                 print('You lost', gamblemoney, 'money')
-                self.money = self.money - gamblemoney
+                self.money -= gamblemoney
                 print('You have', self.money, 'money')
         elif gamblepick == 2:
             moneylost = randint(10, 1000)
             print('You lost', moneylost, 'money')
-            self.money = self.money - moneylost
+            self.money -= moneylost
             print('You have', self.money, 'money')
         elif gamblepick == 3:
             moneywon = randint(10, 10000)
             print('You won', moneywon, 'money')
-            self.money = moneywon + self.money
+            self.money += moneywon
             print('You have', self.money, 'money')
 
     def help(self):
