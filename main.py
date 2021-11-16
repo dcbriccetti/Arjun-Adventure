@@ -111,7 +111,7 @@ def game():
         print('You have', bank, 'money in the bank')
         game()
     elif whattodo == 'deposit':
-        if depwith == True:
+        if depwith:
             print('You have', money, 'money')
             print('How much do you want to deposit?')
             depositamount = int(input())
@@ -128,7 +128,7 @@ def game():
         print('You can: rob, gamble, balance, deposit, withdraw, treasure, shop, inventory, sell, use, sports')
         game()
     elif whattodo == 'withdraw':
-        if depwith == True:
+        if depwith:
             if bank == 0:
                 print('You cant withdraw anything. First deposit something.')
                 game()
