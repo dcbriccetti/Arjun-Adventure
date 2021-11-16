@@ -4,6 +4,8 @@ class Game:
     def __init__(self) -> None:
         self.playing = True
         self.money = 3_932_333
+        self.inventory = []
+        self.bank = 0
         self.actions = {
             'rob': self.rob,
             'gamble': self.gamble,
