@@ -1,5 +1,6 @@
 from random import randint
 from time import time
+
 dig_avail_at = time()
 monk_eye = 0
 depwith = True
@@ -96,25 +97,25 @@ def game():
         if gamblepick == 2:
             moneylost = randint(10, 1000)
             print('You lost', moneylost, 'money')
-            money=money-moneylost
-            print('You have',money,'money')
+            money = money - moneylost
+            print('You have', money, 'money')
             game()
         if gamblepick == 3:
             moneywon = randint(10, 10000)
             print('You won', moneywon, 'money')
             money = moneywon + money
-            print('You have',money,'money')
+            print('You have', money, 'money')
             game()
     elif whattodo == 'balance':
-        print('You have',money,'money')
-        print('You have',bank,'money in the bank')
+        print('You have', money, 'money')
+        print('You have', bank, 'money in the bank')
         game()
     elif whattodo == 'deposit':
         if depwith == True:
-            print('You have',money,'money')
+            print('You have', money, 'money')
             print('How much do you want to deposit?')
             depositamount = int(input())
-            money = money-depositamount
+            money = money - depositamount
             bank = depositamount + bank
             print('You have', money, 'money')
             print('You have', bank, 'money in the bank')
@@ -136,7 +137,7 @@ def game():
                 print('You have', bank, 'money in the bank')
                 print('How much do you want to withdraw?')
                 withdraw = int(input())
-                bank = bank-withdraw
+                bank = bank - withdraw
                 money = money + withdraw
                 print('You have', money, 'money')
                 print('You have', bank, 'money in the bank')
@@ -146,12 +147,12 @@ def game():
             game()
     elif whattodo == 'treasure':
         print('You go through the forest looking for treasure!')
-        treasure = randint(1,100)
+        treasure = randint(1, 100)
         if treasure <= 25:
-            treasureamount = randint(3,300000)
+            treasureamount = randint(3, 300000)
             print('You got', treasureamount, 'money')
             money = money + treasureamount
-            print('You have', money,'money')
+            print('You have', money, 'money')
             game()
         elif treasure > 25 and treasure <= 50:
             print('You died and lost everything!')
@@ -187,8 +188,8 @@ def game():
         if buy == 'cheese':
             if money > 100000:
                 print('Why would you buy cheese for 100,000 dollars?')
-                money = money-100000
-                print('You have', money,'money')
+                money = money - 100000
+                print('You have', money, 'money')
                 inventory.append('cheese')
                 game()
             else:
@@ -199,7 +200,7 @@ def game():
                 print('You have a shovel. You can use it using the dig command.')
                 inventory.append('shovel')
                 money = money - 5000
-                print('You have',money,'money')
+                print('You have', money, 'money')
                 game()
             else:
                 print('You dont have enough money to buy this.')
@@ -213,8 +214,8 @@ def game():
         print('What do you want to sell in your inventory?', ','.join(inventory))
         sellitem = str(input()).lower()
         if sellitem in inventory:
-            sellchance = randint(1000,10000)
-            print('You sold it to someone for',sellchance,'dollars')
+            sellchance = randint(1000, 10000)
+            print('You sold it to someone for', sellchance, 'dollars')
             inventory.remove(sellitem)
             game()
         if sellitem == 'exit':
@@ -231,10 +232,10 @@ def game():
                 usephone = str(input())
                 if usephone == 'police':
                     print('The police got mad at you for calling.')
-                    jailchance = randint(1,100)
+                    jailchance = randint(1, 100)
                     if jailchance >= 30:
                         game()
-                    if jailchance <30:
+                    if jailchance < 30:
                         print('You went to jail and lost all of your money')
                         money = 0
                         bank = 0
@@ -270,26 +271,26 @@ def game():
             else:
                 print('You dont have cheese')
                 game()
-        if use  == 'shovel':
+        if use == 'shovel':
             if 'shovel' in inventory:
                 print('To use the shovel use the: dig :command.')
                 game()
     elif whattodo == 'sleep':
-        sleepchance = randint(1,100)
+        sleepchance = randint(1, 100)
         if sleepchance >= 30:
             print('You fell asleep peacefully and woke up with 500 more dollars')
             money = money + 500
             game()
         elif sleepchance < 30 and sleepchance >= 10:
             print('Your money doubles for some reason')
-            money = money*2
-            print('You have',money,'money')
+            money = money * 2
+            print('You have', money, 'money')
             game()
         else:
             print('You die')
             money = 0
             bank = 0
-            inventory =[]
+            inventory = []
             game()
     elif whattodo == 'monkey':
         if monk_eye == 1:
@@ -298,14 +299,14 @@ def game():
         else:
             print('YOU SAID THE MAGIC WORD YOU GET 10x YOUR MONEY! ONE TIME USE ONLY!')
             monk_eye = 1
-            money = money*10
-            print('You have',money,'money')
+            money = money * 10
+            print('You have', money, 'money')
             game()
     elif whattodo == 'dance':
-        dancerandom = randint(1,10)
+        dancerandom = randint(1, 10)
         if dancerandom == 1:
             print('You do zumba')
-            zumba = randint(1,100)
+            zumba = randint(1, 100)
             if zumba > 50:
                 print('You died while dancing.')
             if zumba < 50:
@@ -314,8 +315,8 @@ def game():
         elif dancerandom == 2:
             print('You start doing fortnite dances and everyone beats you up')
             print('You lose half of your money')
-            money = money/2
-            print('You have', money,'money')
+            money = money / 2
+            print('You have', money, 'money')
             game()
         elif dancerandom == 3:
             print('You get bullied by your friends for dancing')
@@ -341,12 +342,12 @@ def game():
             print('You have', money, 'money')
             game()
         elif dancerandom == 6:
-            moneydance = randint(1,10000)
-            print('You gain',moneydance,' for dancing')
+            moneydance = randint(1, 10000)
+            print('You gain', moneydance, ' for dancing')
             game()
     elif whattodo == 'read':
-        knowledgechance = randint(1,50)
-        if knowledgechance >=18:
+        knowledgechance = randint(1, 50)
+        if knowledgechance >= 18:
             print('You gained 1 knowledge')
             knowledge = knowledge + 1
             game()
@@ -356,15 +357,15 @@ def game():
             game()
     elif whattodo == 'knowledge':
         print('Once you get 10 knowledge you can apply for a job using the job command.')
-        print('You currently have',knowledge,'knowledge')
+        print('You currently have', knowledge, 'knowledge')
         game()
     elif whattodo == 'dig':
         if time() > dig_avail_at:
             if 'shovel' in inventory:
                 dig_avail_at = time() + 5
-                digchance = randint(1,100)
-                if digchance >=65:
-                    digitem = randint(1,7)
+                digchance = randint(1, 100)
+                if digchance >= 65:
+                    digitem = randint(1, 7)
                     if digitem == 2:
                         print('You found a diamond')
                         inventory.append('diamond')
@@ -386,15 +387,15 @@ def game():
             game()
     elif whattodo == 'work':
         if jobishere == 1:
-            workcheck = randint(1,1000)
+            workcheck = randint(1, 1000)
             workcheck2 = randint(1, 1000)
             workadder = workcheck + workcheck2
-            print('What is',workcheck, '+' ,workcheck2)
+            print('What is', workcheck, '+', workcheck2)
             workanswer = int(input())
             if workanswer == workadder:
                 print('Good Job! Heres 10k dollars')
-                money = money+10000
-                print('You have',money,'money')
+                money = money + 10000
+                print('You have', money, 'money')
                 game()
             else:
                 print('You got the answer wrong. Sorry!')
@@ -412,7 +413,7 @@ def game():
             game()
     elif whattodo == 'job':
         if knowledge >= 10:
-            jobpicker = randint(1,3)
+            jobpicker = randint(1, 3)
             jobishere = 1
             print('You can apply for a job. Here is your only option.')
             if jobpicker == 1:
@@ -426,7 +427,7 @@ def game():
             if jobreply == 'yes':
                 print('Okay. Here is your first 10000 paycheck! Work by using the work command!')
                 money = money + 10000
-                print('You have',money,'money')
+                print('You have', money, 'money')
                 jobishere = 1
                 game()
             else:
@@ -436,7 +437,7 @@ def game():
             print('You need 10 knowledge to get a job. Earn knowledge by using the read command.')
             game()
     elif whattodo == 'tip':
-        tipchance = randint(1,5)
+        tipchance = randint(1, 5)
         if tipchance == 5:
             print('When you sell something it will probably be sold for a really low price.')
             game()
@@ -447,37 +448,39 @@ def game():
             print('If you read enough using the : read : command, you can get a job.')
             game()
         elif tipchance == 2:
-            print('If you use the command: treasure :there is a chance you can get a very high amoung of money. Or you could lose all of your money.')
+            print(
+                'If you use the command: treasure :there is a chance you can get a very high amoung of money. Or you could lose all of your money.')
             game()
         else:
             print('Use the: help :command to see all commands.')
             game()
     elif whattodo == 'bankrob':
         if depwith:
-            print('Note: Once you rob the bank you will never be able to deposit or withdraw anything. Would you like to continue?')
+            print(
+                'Note: Once you rob the bank you will never be able to deposit or withdraw anything. Would you like to continue?')
             bankcheck = str(input()).lower()
             if bankcheck == 'yes':
                 depwith = False
-                bankliveordie = randint(1,50)
+                bankliveordie = randint(1, 50)
                 if bankliveordie >= 10:
                     print('You will have to answer a question to rob the bank.')
-                    number1=randint(1,1000)
-                    number2=randint(1,1000)
+                    number1 = randint(1, 1000)
+                    number2 = randint(1, 1000)
                     numbercalculatebank = number1 + number2
-                    print('What is',number1,'+',number2)
+                    print('What is', number1, '+', number2)
                     bankadd = int(input())
                     if bankadd == numbercalculatebank:
-                        bankmoney = randint(10000,100000)
-                        print('You won',bankmoney,'money')
+                        bankmoney = randint(10000, 100000)
+                        print('You won', bankmoney, 'money')
                         money = money + bankmoney
-                        print('You have',money,'money')
+                        print('You have', money, 'money')
                         game()
                     else:
                         print('You got the question wrong and the police found you. You lost everything.')
-                        money=0
-                        bank=0
-                        inventory=[]
-                        print('You have',money,'money')
+                        money = 0
+                        bank = 0
+                        inventory = []
+                        print('You have', money, 'money')
                         depwith = False
                         game()
                 else:
@@ -488,8 +491,8 @@ def game():
                     game()
             else:
                 print('You gained 1000 dollars for doing the right thing')
-                money = money +1000
-                print('You have',money,'money')
+                money = money + 1000
+                print('You have', money, 'money')
                 game()
         else:
             print('You have already robbed the bank so you cant rob it again')
@@ -498,17 +501,17 @@ def game():
         print('Would you like to rob the museum? You might lose half of your money and also get a little surprise ;)')
         museumcheck = str(input()).lower()
         if museumcheck == 'yes':
-            museumchance = randint(1,4)
+            museumchance = randint(1, 4)
             if museumchance == 1:
                 print('You got unlucky and lost half of your money. You didnt get anything')
-                money = money/2
-                print('You have',money,'money')
+                money = money / 2
+                print('You have', money, 'money')
                 game()
             else:
-                museummoney = randint(1000,40000)
-                print('You robbed the museum for',museummoney,'money')
+                museummoney = randint(1000, 40000)
+                print('You robbed the museum for', museummoney, 'money')
                 money = museummoney + money
-                print('You have',money,'money')
+                print('You have', money, 'money')
                 game()
         else:
             print('Good Choice!')
@@ -516,4 +519,6 @@ def game():
     else:
         print('Invalid action')
         game()
+
+
 game()
