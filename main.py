@@ -154,7 +154,7 @@ def game():
             money = money + treasureamount
             print('You have', money, 'money')
             game()
-        elif treasure > 25 and treasure <= 50:
+        elif 25 < treasure <= 50:
             print('You died and lost everything!')
             money = 0
             bank = 0
@@ -281,7 +281,7 @@ def game():
             print('You fell asleep peacefully and woke up with 500 more dollars')
             money = money + 500
             game()
-        elif sleepchance < 30 and sleepchance >= 10:
+        elif 30 > sleepchance >= 10:
             print('Your money doubles for some reason')
             money = money * 2
             print('You have', money, 'money')
