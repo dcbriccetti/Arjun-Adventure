@@ -8,14 +8,14 @@ class Game:
         self.monkey = randint(700, 10000)
         self.dig_avail_at = time()
         self.monk_eye = 0
-        self.depwith = True
+        self.dep_with = True
         self.money = 3932333
         self.jail = False
         self.bank = 0
         self.shop_list = ['5,000:Shovel, 10,000:Phone, 20,000:Computer, 100,000:Cheese']
         self.inventory = []
         self.knowledge = 0
-        self.jobishere = 0
+        self.job_is_here = 0
         self.actions = {
             'rob': self.rob,
             'gamble': self.gamble,
@@ -25,42 +25,42 @@ class Game:
     def play(self):
         while True:
             print('What do you want to do?')
-            whattodo = input().lower()
-            if action_function := self.actions.get(whattodo):
+            what_to_do = input().lower()
+            if action_function := self.actions.get(what_to_do):
                 action_function()
             else:
                 print('Invalid action')
 
     def rob(self):
         print('Who would you like to rob? Elephant, bunny or monkey?')
-        robinput = input().lower()
-        dierob = randint(1, 100)
-        if dierob <= 25:
-            print('You died while robbing the', robinput)
+        rob_input = input().lower()
+        die_rob = randint(1, 100)
+        if die_rob <= 25:
+            print('You died while robbing the', rob_input)
             self.money = 0
             self.bank = 0
             self.inventory = []
         else:
-            if robinput == 'elephant':
-                robchance = randint(1, 100)
-                if robchance >= 50:
+            if rob_input == 'elephant':
+                rob_chance = randint(1, 100)
+                if rob_chance >= 50:
                     print('You got', self.elephant, 'moneys')
                     money = self.elephant + self.money
                     print('You have', money, 'money')
                 else:
                     self.police_catch()
                     self.inventory = []
-            if robinput == 'bunny':
-                robchance = randint(1, 100)
-                if robchance > 25:
+            if rob_input == 'bunny':
+                rob_chance = randint(1, 100)
+                if rob_chance > 25:
                     print('You got', self.bunny, 'moneys')
                     self.money += self.bunny
                     print('You have', self.money, 'money')
                 else:
                     self.police_catch()
-            if robinput == 'monkey':
-                robchance = randint(1, 100)
-                if robchance > 25:
+            if rob_input == 'monkey':
+                rob_chance = randint(1, 100)
+                if rob_chance > 25:
                     print('You got', self.monkey, 'moneys')
                     self.money += self.monkey
                     print('You have', self.money, 'money')
@@ -73,30 +73,30 @@ class Game:
         self.bank = 0
 
     def gamble(self):
-        gamblepick = randint(1, 3)
-        if gamblepick == 1:
+        gamble_pick = randint(1, 3)
+        if gamble_pick == 1:
             print('Pick a number between 1 and 10')
-            numberpicker = randint(1, 10)
-            numberpick = int(input())
-            if numberpick == numberpicker:
-                gamblemoney = randint(1000, 10000)
-                print('You won', gamblemoney, 'money')
-                self.money += gamblemoney
+            number_picker = randint(1, 10)
+            number_pick = int(input())
+            if number_pick == number_picker:
+                gamble_money = randint(1000, 10000)
+                print('You won', gamble_money, 'money')
+                self.money += gamble_money
                 print('You have', self.money, 'money')
             else:
-                gamblemoney = randint(1000, 4000)
-                print('You lost', gamblemoney, 'money')
-                self.money -= gamblemoney
+                gamble_money = randint(1000, 4000)
+                print('You lost', gamble_money, 'money')
+                self.money -= gamble_money
                 print('You have', self.money, 'money')
-        elif gamblepick == 2:
-            moneylost = randint(10, 1000)
-            print('You lost', moneylost, 'money')
-            self.money -= moneylost
+        elif gamble_pick == 2:
+            money_lost = randint(10, 1000)
+            print('You lost', money_lost, 'money')
+            self.money -= money_lost
             print('You have', self.money, 'money')
-        elif gamblepick == 3:
-            moneywon = randint(10, 10000)
-            print('You won', moneywon, 'money')
-            self.money += moneywon
+        elif gamble_pick == 3:
+            money_won = randint(10, 10000)
+            print('You won', money_won, 'money')
+            self.money += money_won
             print('You have', self.money, 'money')
 
     def help(self):
