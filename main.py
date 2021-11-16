@@ -52,7 +52,10 @@ class Game:
     def apply_gain(self, gain):
         print('You got', gain, 'moneys')
         self.money += gain
-        print('You have', self.money, 'money')
+        self.show_money()
+
+    def show_money(self):
+        print(f'You have {self.money:,} money')
 
     def police_catch(self):
         print('The police caught you and you lost all your money!')
@@ -69,22 +72,22 @@ class Game:
                 gamble_money = randint(1000, 10000)
                 print('You won', gamble_money, 'money')
                 self.money += gamble_money
-                print('You have', self.money, 'money')
+                self.show_money()
             else:
                 gamble_money = randint(1000, 4000)
                 print('You lost', gamble_money, 'money')
                 self.money -= gamble_money
-                print('You have', self.money, 'money')
+                self.show_money()
         elif gamble_pick == 2:
             money_lost = randint(10, 1000)
             print('You lost', money_lost, 'money')
             self.money -= money_lost
-            print('You have', self.money, 'money')
+            self.show_money()
         elif gamble_pick == 3:
             money_won = randint(10, 10000)
             print('You won', money_won, 'money')
             self.money += money_won
-            print('You have', self.money, 'money')
+            self.show_money()
 
     def help(self):
         print('You can: ' + ', '.join(self.actions.keys()))
